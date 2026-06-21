@@ -1,4 +1,4 @@
-name: Static Site CI
+name: Secure Static Site CI
 
 on:
   push:
@@ -6,13 +6,23 @@ on:
       - main
 
 jobs:
-  check-files:
+  security-and-check:
     runs-on: ubuntu-latest
 
     steps:
+      # အဆင့် ၁ - Code များကို ဆွဲယူခြင်း
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Git history အကုန်လုံးကို ဆွဲယူရန် (Security Scan လုပ်ဖို့ လိုအပ်ပါတယ်)
 
+      # အဆင့် ၂ - လုံခြုံရေး စစ်ဆေးခြင်း (Secret Scanning)
+      - name: Secret Scanning (Gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # အဆင့် ၃ - ဖိုင်များ မှန်ကန်မှုရှိမရှိ စစ်ဆေးခြင်း
       - name: Check Project Structure
         run: |
           echo "Checking files before Vercel Deployment..."
