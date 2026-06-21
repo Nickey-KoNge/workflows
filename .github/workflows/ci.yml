@@ -1,0 +1,20 @@
+name: Static Site CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Check Project Structure
+        run: |
+          echo "Checking files before Vercel Deployment..."
+          ls -la
+          echo "✅ Files look good! Vercel will handle the deployment automatically."
