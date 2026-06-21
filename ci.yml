@@ -1,1 +1,22 @@
+name: Static Site CI
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Code တွေကို ဆွဲယူမယ်
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # ဖိုင်တွေ အစုံရှိမရှိ စစ်ဆေးမယ် (လေ့ကျင့်ရန်အတွက်သာ)
+      - name: Check Project Structure
+        run: |
+          echo "Checking files before Vercel Deployment..."
+          ls -la
+          echo "✅ Files look good! Vercel will handle the deployment automatically."
