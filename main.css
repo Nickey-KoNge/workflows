@@ -1,0 +1,153 @@
+/* CSS Reset & Variables */
+
+@font-face {
+  font-family: "Pyidaungsu";
+  src: url("fonts/Pyidaungsu-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pyidaungsu", sans-serif;
+}
+:root {
+  /* Dark Mode Color  */
+  --bg-color: #121212;
+  --text-primary: #ffd966;
+  --text-secondary: #bf9002;
+  --text-white: #ffffff;
+  --text-btn-white: #ffffff;
+  --text-gold: #efe0b4;
+  --text-unit: #888888;
+  --text-size-large: 28px;
+  --text-size-normal: 20px;
+  --text-size-small: 16px;
+  --padding-round: 20px;
+  --padding-round-small :10px;
+  --nav-height: 80px;
+  --bottom-nav-height: 100px;
+  --bg-primary: #bf9002;
+  --bg-primary-hover: #6d5417;
+  --border-radius: 10px;
+  --border-left-radius: 10px 0 0 10px;
+  --icon-font-size: 30px;
+  --card-height: 200px;
+  --card-bg-color: #262626;
+  --card-left-color: #4d4124;
+}
+.light-mode {
+  --bg-color: #eeeeee;
+  --text-primary: #bf9002;
+  --text-secondary: #bf9002;
+  --text-white: #000000;
+  --text-unit: #555555;
+  --card-bg-color: #ffffff;
+  --card-left-color: #4d4124;
+}
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-round);
+  width: 100%;
+  max-width: 500%;
+  min-height: 100vh;
+}
+.theme-icon-wrapper {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+  z-index: 100;
+  color: var(--text-secondary); 
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.theme-icon-wrapper:hover {
+  transform: rotate(180deg); 
+}
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h4 {
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-size: var(--text-size-normal);
+}
+
+h1 {
+  color: var(--text-primary);
+  font-size: var(--text-size-large);
+}
+.main-logo {
+  width: 350px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--text-secondary);
+  background: transparent;
+  color: var(--text-secondary);
+}
+/* login button */
+.login-btn,
+.new-btn {
+  background-color: var(--text-secondary);
+  color: var(--text-btn-white) !important;
+  font-size: var(--text-size-normal);
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
+  z-index: 99;
+}
+
+.new-btn {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  padding: 15px 25px;
+}
+
+.login-btn {
+  position: relative;
+  bottom: auto;
+  right: auto;
+  margin-top: 30px;
+  padding: 12px 40px;
+}
+
+.light-mode .new-btn,
+.light-mode .login-btn {
+  color: var(--text-btn-white) !important;
+  background-color: var(--text-secondary);
+}
+.account-logo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--text-primary);
+}
